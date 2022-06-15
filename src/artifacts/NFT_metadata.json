@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.7+commit.e28d00a7"
+		"version": "0.8.14+commit.80d49f37"
 	},
 	"language": "Solidity",
 	"output": {
@@ -161,6 +161,25 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "getBalanceOfToken",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -434,11 +453,11 @@
 	},
 	"sources": {
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": {
-			"keccak256": "0x6edad7bb09b2cb5167ca812c4ffa9ae5fd58156d825668fab05102fcedf380ea",
+			"keccak256": "0x44d5161ff3fa1e06de859b4d12bfdc5b7738c174a49ed55aca435ae1a8e2d7a0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://78b19c33d3e328d77ce5bbc97ea18b9a117931ec8dd0424a3976423659fbe16e",
-				"dweb:/ipfs/QmdS3nCGdFuuQxB6TtxupjGczCHD8pWQAhHoz4fXeNp2fx"
+				"bzz-raw://17706155cf3e9bdc3ef7567ed1774436fd4e342f3bd68481c322d3cc3aa60ffc",
+				"dweb:/ipfs/QmV1DG4QqYVoxU6yV4Q6xreWg8YquvYjwEoUsK5VH2QEhh"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol": {
@@ -458,11 +477,11 @@
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
-			"keccak256": "0xc148a0717ed41419600e2444013ed39bab9a8dcd8958d2b5bf1b6b3f0f39014e",
+			"keccak256": "0xf12c57e66cdaf60b67eb2d3ad396795ee46b4c1d886ab4809f081605a5608ae0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://124f4580f9a21fdf4223d2e63b8cb04a1a2482260fe5eff6cc526781d1cc3b78",
-				"dweb:/ipfs/QmWJ64z4iHnoxTtuiehLiygHxriR3rDkqj9rRxYnXE12ui"
+				"bzz-raw://74056a908cc1201d1f410016cbc75f8ca8bf70bddedc2c41fa1a94916a0400bf",
+				"dweb:/ipfs/QmTYKGwdv6VhK7Ev5Ud2a5u3QcPZ88esCV4tJ3sNWetmTd"
 			]
 		},
 		"https://github.com/OpenZeppelin/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
@@ -522,11 +541,11 @@
 			]
 		},
 		"src/nft.sol": {
-			"keccak256": "0xe2934de40043e18eb14957244c1407296edba9980db7e628af9e6df03878aed6",
+			"keccak256": "0x5ff5b812e9e6c784c85e593caa2b3e6ed31c7e0418ee4cff2255385633362f31",
 			"license": "UNLICENSED",
 			"urls": [
-				"bzz-raw://3408bb5653abf4f7aacd73bdf162b793c4aa3218ea9b98b07addf5013c9194d8",
-				"dweb:/ipfs/QmXLq77H1tRzahp2fz4gMSipgcWgk7GfAp5Z5vAPRhdwHD"
+				"bzz-raw://1f61b09e01c191ab629c26c66bbe3c17dae022c9127ece72114956e65e67653f",
+				"dweb:/ipfs/QmaiJLgTKxGHTWyixz6J82DCQ6pq6YCw2ZNmt3rKjGcQJC"
 			]
 		}
 	},

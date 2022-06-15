@@ -26,4 +26,9 @@ contract NFT is ERC721URIStorage{
         setApprovalForAll(contractAddress, true);
         return newTokenId;
     }
+
+    function getBalanceOfToken(address owner) public view returns (uint256){
+        return balanceOf(owner);
+    }
+    
 }

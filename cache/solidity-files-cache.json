@@ -9,6 +9,43 @@
     ]
   },
   "files": {
+    "/home/adegbite/nftMarketPlace/lib/ds-test/src/cheatcode/cheatcode.sol": {
+      "lastModificationDate": 1653666038037,
+      "contentHash": "77a55517f9f64979554a52ac489e496c",
+      "sourceName": "lib/ds-test/src/cheatcode/cheatcode.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.10",
+      "artifacts": {
+        "Vm": {
+          "0.8.12+commit.f00d7308.Linux.gcc": "cheatcode.sol/Vm.json"
+        }
+      }
+    },
     "/home/adegbite/nftMarketPlace/lib/ds-test/src/test.sol": {
       "lastModificationDate": 1653562914302,
       "contentHash": "962996f0e05d5218857a538a62d7c47e",
@@ -42,7 +79,7 @@
       "versionRequirement": ">=0.5.0",
       "artifacts": {
         "DSTest": {
-          "0.8.10+commit.fc410830.Linux.gcc": "test.sol/DSTest.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "test.sol/DSTest.json"
         }
       }
     },
@@ -121,7 +158,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "ERC721": {
-          "0.8.10+commit.fc410830.Linux.gcc": "ERC721.sol/ERC721.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "ERC721.sol/ERC721.json"
         }
       }
     },
@@ -160,7 +197,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC721": {
-          "0.8.10+commit.fc410830.Linux.gcc": "IERC721.sol/IERC721.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "IERC721.sol/IERC721.json"
         }
       }
     },
@@ -197,7 +234,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC721Receiver": {
-          "0.8.10+commit.fc410830.Linux.gcc": "IERC721Receiver.sol/IERC721Receiver.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "IERC721Receiver.sol/IERC721Receiver.json"
         }
       }
     },
@@ -242,7 +279,11 @@
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
       "versionRequirement": "^0.8.0",
-      "artifacts": {}
+      "artifacts": {
+        "ERC721URIStorage": {
+          "0.8.12+commit.f00d7308.Linux.gcc": "ERC721URIStorage.sol/ERC721URIStorage.json"
+        }
+      }
     },
     "/home/adegbite/nftMarketPlace/lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
       "lastModificationDate": 1653564244742,
@@ -280,7 +321,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC721Metadata": {
-          "0.8.10+commit.fc410830.Linux.gcc": "IERC721Metadata.sol/IERC721Metadata.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "IERC721Metadata.sol/IERC721Metadata.json"
         }
       }
     },
@@ -317,7 +358,7 @@
       "versionRequirement": "^0.8.1",
       "artifacts": {
         "Address": {
-          "0.8.10+commit.fc410830.Linux.gcc": "Address.sol/Address.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "Address.sol/Address.json"
         }
       }
     },
@@ -354,7 +395,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "Context": {
-          "0.8.10+commit.fc410830.Linux.gcc": "Context.sol/Context.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "Context.sol/Context.json"
         }
       }
     },
@@ -391,7 +432,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "Counters": {
-          "0.8.10+commit.fc410830.Linux.gcc": "Counters.sol/Counters.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "Counters.sol/Counters.json"
         }
       }
     },
@@ -428,7 +469,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "Strings": {
-          "0.8.10+commit.fc410830.Linux.gcc": "Strings.sol/Strings.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "Strings.sol/Strings.json"
         }
       }
     },
@@ -467,7 +508,7 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "ERC165": {
-          "0.8.10+commit.fc410830.Linux.gcc": "ERC165.sol/ERC165.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "ERC165.sol/ERC165.json"
         }
       }
     },
@@ -504,13 +545,13 @@
       "versionRequirement": "^0.8.0",
       "artifacts": {
         "IERC165": {
-          "0.8.10+commit.fc410830.Linux.gcc": "IERC165.sol/IERC165.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "IERC165.sol/IERC165.json"
         }
       }
     },
     "/home/adegbite/nftMarketPlace/src/nft.sol": {
-      "lastModificationDate": 1653648541069,
-      "contentHash": "845e4d6a5545a848a6691d44d31d4ee1",
+      "lastModificationDate": 1655247878567,
+      "contentHash": "1c7d0f3bc0f994e48e3a5249f1cba552",
       "sourceName": "src/nft.sol",
       "solcConfig": {
         "settings": {
@@ -553,12 +594,12 @@
       "versionRequirement": "^0.8.4",
       "artifacts": {
         "NFT": {
-          "0.8.10+commit.fc410830.Linux.gcc": "nft.sol/NFT.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "nft.sol/NFT.json"
         }
       }
     },
     "/home/adegbite/nftMarketPlace/src/nftMarketPlace.sol": {
-      "lastModificationDate": 1653609962617,
+      "lastModificationDate": 1654782780462,
       "contentHash": "1d80990e41313e9e8b8bba3615beba16",
       "sourceName": "src/nftMarketPlace.sol",
       "solcConfig": {
@@ -602,13 +643,13 @@
       "versionRequirement": "^0.8.4",
       "artifacts": {
         "NFTMarketplace": {
-          "0.8.10+commit.fc410830.Linux.gcc": "nftMarketPlace.sol/NFTMarketplace.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "nftMarketPlace.sol/NFTMarketplace.json"
         }
       }
     },
     "/home/adegbite/nftMarketPlace/src/test/Contract.t.sol": {
-      "lastModificationDate": 1653648904728,
-      "contentHash": "bc5c97ff233cacac1c3325c5a964d090",
+      "lastModificationDate": 1655206380501,
+      "contentHash": "430eefc3697e80594c640a6a795e7b5a",
       "sourceName": "src/test/Contract.t.sol",
       "solcConfig": {
         "settings": {
@@ -636,6 +677,7 @@
         }
       },
       "imports": [
+        "lib/ds-test/src/cheatcode/cheatcode.sol",
         "lib/ds-test/src/test.sol",
         "lib/openzeppelin-contracts/contracts/security/ReentrancyGuard.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
@@ -652,45 +694,12 @@
         "src/nft.sol",
         "src/nftMarketPlace.sol"
       ],
-      "versionRequirement": "=0.8.10",
+      "versionRequirement": "^0.8.4",
       "artifacts": {
         "ContractTest": {
-          "0.8.10+commit.fc410830.Linux.gcc": "Contract.t.sol/ContractTest.json"
+          "0.8.12+commit.f00d7308.Linux.gcc": "Contract.t.sol/ContractTest.json"
         }
       }
-    },
-    "/home/adegbite/nftMarketPlace/src/test/Nft.t.sol": {
-      "lastModificationDate": 1653643999035,
-      "contentHash": "d41d8cd98f00b204e9800998ecf8427e",
-      "sourceName": "src/test/Nft.t.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs"
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers"
-              ]
-            }
-          },
-          "evmVersion": "london"
-        }
-      },
-      "imports": [],
-      "versionRequirement": null,
-      "artifacts": {}
     }
   }
 }
