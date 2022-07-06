@@ -4,7 +4,7 @@ import "openzeppelin-contracts/contracts/utils/Counters.sol";
 import "openzeppelin-contracts/contracts/security/ReentrancyGuard.sol";
 import "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 
-contract NFTMarketplace is ReentrancyGuard{
+contract NFTMarketplace is ReentrancyGuard {
     using Counters for Counters.Counter;
     Counters.Counter private _itemIds;
     Counters.Counter private _itemsSold;
@@ -12,8 +12,7 @@ contract NFTMarketplace is ReentrancyGuard{
     // soliity creates a getter function that returns the listingPrice
     uint256 public listingPrice = 0.015 ether;
 
-    address payable owner; 
-
+    address payable owner;
 
     struct MarketItem {
         uint256 itemId;
@@ -34,7 +33,7 @@ contract NFTMarketplace is ReentrancyGuard{
     error priceMustEqualListingPrice();
     error notAskingPrice();
 
-    /////////////////EVENT//////////////////////// 
+    /////////////////EVENT////////////////////////
     event MarketItemCreated(
         uint256 indexed itemId,
         address indexed nftContract,
@@ -62,26 +61,29 @@ contract NFTMarketplace is ReentrancyGuard{
         listingPrice = _listingprice;
     }
 
-
-    function createMarketItem(address nftContract, uint256 tokenId, uint256 price) public payable nonReentrant {
+    function createMarketItem(
+        address nftContract,
+        uint256 tokenId,
+        uint256 price
+    ) public payable nonReentrant {
         if (price == 0) revert priceMustBeGreaterThanOneGwei();
         if (msg.value != listingPrice) revert priceMustBeEqualToListingPrice();
-       _itemIds.increment();
-       uint256 itemId = _itemIds.current();
-     idToMarketItem[itemId] = MarketItem(
-         itemId,
-         nftContract,
-         tokenId,
-         payable(msg.sender),
-         payable(address(0)),
-         price,
-         false
-     );
+        _itemIds.increment();
+        uint256 itemId = _itemIds.current();
+        idToMarketItem[itemId] = MarketItem(
+            itemId,
+            nftContract,
+            tokenId,
+            payable(msg.sender),
+            payable(address(0)),
+            price,
+            false
+        );
 
         IERC721(nftContract).transferFrom(msg.sender, address(this), tokenId);
         emit MarketItemCreated(
-             itemId,
-             nftContract,
+            itemId,
+            nftContract,
             tokenId,
             msg.sender,
             address(0),
@@ -90,85 +92,84 @@ contract NFTMarketplace is ReentrancyGuard{
         );
     }
 
-        /* Creates the sale of a marketplace item */
+    /* Creates the sale of a marketplace item */
     /* Transfers ownership of the item, as well as funds between parties */
 
-    function createMarketSale(address nftContract, uint256 itemId) public payable nonReentrant {
+    function createMarketSale(address nftContract, uint256 itemId)
+        public
+        payable
+        nonReentrant
+    {
         uint256 price = idToMarketItem[itemId].price;
         uint256 tokenIds = idToMarketItem[itemId].tokenId;
-        if(msg.value != price) revert notAskingPrice();
+        if (msg.value != price) revert notAskingPrice();
         idToMarketItem[itemId].seller.transfer(msg.value);
         IERC721(nftContract).transferFrom(address(this), msg.sender, tokenIds);
         idToMarketItem[itemId].owner = payable(msg.sender);
         idToMarketItem[itemId].sold = true;
         _itemsSold.increment();
-        payable(owner).transfer(listingPrice);   
+        payable(owner).transfer(listingPrice);
     }
 
-    function fetchMarketItems() public view returns (MarketItem [] memory){
+    function fetchMarketItems() public view returns (MarketItem[] memory) {
         uint256 itemCount = _itemIds.current();
-        uint unsoldItemsCount = (_itemIds.current()) - (_itemsSold.current() );
-        uint currentIndex = 0;
+        uint256 unsoldItemsCount = (_itemIds.current()) -
+            (_itemsSold.current());
+        uint256 currentIndex = 0;
         MarketItem[] memory items = new MarketItem[](unsoldItemsCount);
-        for(uint i =0; i < itemCount; i ++){
-            if(idToMarketItem[i + 1].owner == address(0)){
+        for (uint256 i = 0; i < itemCount; i++) {
+            if (idToMarketItem[i + 1].owner == address(0)) {
                 uint256 currentId = idToMarketItem[i + 1].itemId;
                 MarketItem storage currentItem = idToMarketItem[currentId];
                 items[currentIndex] = currentItem;
-                currentIndex +=1;
+                currentIndex += 1;
             }
         }
         return items;
-
     }
 
+    function fetchMyNfts() public view returns (MarketItem[] memory) {
+        uint256 totalItemCount = _itemIds.current();
+        uint256 itemCount = 0;
+        uint256 currentIndex = 0;
 
-    function fetchMyNfts() public view returns (MarketItem[] memory){
-        uint totalItemCount = _itemIds.current();
-        uint itemCount = 0;
-        uint currentIndex =0;
-
-        for(uint i =0; i < totalItemCount; i++){
-            if(idToMarketItem[i + 1].owner == msg.sender){
-                itemCount +=1;
+        for (uint256 i = 0; i < totalItemCount; i++) {
+            if (idToMarketItem[i + 1].owner == msg.sender) {
+                itemCount += 1;
             }
         }
         MarketItem[] memory items = new MarketItem[](itemCount);
-        for(uint i = 0; i < totalItemCount; i++){
-            if(idToMarketItem[i + 1].owner == msg.sender){
-               uint currentId = idToMarketItem[i + 1].itemId;
-               MarketItem storage currentItem = idToMarketItem[currentId];
-               items[currentIndex] = currentItem;
-               currentIndex +=1; 
+        for (uint256 i = 0; i < totalItemCount; i++) {
+            if (idToMarketItem[i + 1].owner == msg.sender) {
+                uint256 currentId = idToMarketItem[i + 1].itemId;
+                MarketItem storage currentItem = idToMarketItem[currentId];
+                items[currentIndex] = currentItem;
+                currentIndex += 1;
             }
         }
         return items;
     }
 
+    function fetchItemListed() public view returns (MarketItem[] memory) {
+        uint256 totalItemCount = _itemIds.current();
+        uint256 itemCount = 0;
+        uint256 currentIndex = 0;
 
-function fetchItemListed () public view returns (MarketItem[] memory ){
-        uint totalItemCount = _itemIds.current();
-        uint itemCount = 0;
-        uint currentIndex =0;
-
-        for(uint i =0; i < totalItemCount; i++){
-            if(idToMarketItem[i + 1].seller == msg.sender){
-                itemCount +=1;
+        for (uint256 i = 0; i < totalItemCount; i++) {
+            if (idToMarketItem[i + 1].seller == msg.sender) {
+                itemCount += 1;
             }
         }
-              MarketItem[] memory items = new MarketItem[](itemCount);
-                      for(uint i = 0; i < totalItemCount; i++){
-            if(idToMarketItem[i + 1].seller == msg.sender){
-               uint currentId = idToMarketItem[i + 1].itemId;
-               MarketItem storage currentItem = idToMarketItem[currentId];
-               items[currentIndex] = currentItem;
-               currentIndex +=1; 
+        MarketItem[] memory items = new MarketItem[](itemCount);
+        for (uint256 i = 0; i < totalItemCount; i++) {
+            if (idToMarketItem[i + 1].seller == msg.sender) {
+                uint256 currentId = idToMarketItem[i + 1].itemId;
+                MarketItem storage currentItem = idToMarketItem[currentId];
+                items[currentIndex] = currentItem;
+                currentIndex += 1;
             }
         }
-        
+
         return items;
-  
-}
-
-
+    }
 }

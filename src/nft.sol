@@ -4,17 +4,17 @@ import "openzeppelin-contracts/contracts/utils/Counters.sol";
 import "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 
-contract NFT is ERC721URIStorage{
-
-        using Counters for Counters.Counter;
+contract NFT is ERC721URIStorage {
+    using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     Counters.Counter private _itemsSold;
     address contractAddress;
-        constructor(address marketPlaceAddress) ERC721("codeWhizperer", "CWR") {
+
+    constructor(address marketPlaceAddress) ERC721("codeWhizperer", "CWR") {
         contractAddress = marketPlaceAddress;
     }
 
-        function createToken(string memory tokenURI )
+    function createToken(string memory tokenURI)
         public
         payable
         returns (uint256)
@@ -27,8 +27,7 @@ contract NFT is ERC721URIStorage{
         return newTokenId;
     }
 
-    function getBalanceOfToken(address owner) public view returns (uint256){
+    function getBalanceOfToken(address owner) public view returns (uint256) {
         return balanceOf(owner);
     }
-    
 }
