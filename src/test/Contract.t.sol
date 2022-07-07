@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.4;
 
-import "ds-test/test.sol";
+import "forge-std/Test.sol";
 // import "ds-test/cheatcode/cheatcode.sol";
 import "../nftMarketPlace.sol";
 import "../nft.sol";
@@ -20,9 +20,12 @@ contract ContractTest is DSTest {
 
     function testCreateNft() public returns (uint256 token1, uint256 token2) {
         token1 = nft.createToken("http://www.mytokenlocation.com");
-        token2 = nft.createToken("http://www.mytokenlocation2.com");
+        // token2 = nft.createToken("http://www.mytokenlocation2.com");
         assert(token1 == 1);
-        assert(token2 == 2);
+        // assert(token2 == 2);
+        nftmarket.createMarketItem{value:0.015 ether}(address(nft),1,0.025 ether);
+         nftmarket.createMarketSale{value:0.025 ether}(address(nft),1);
+
     }
 
 
@@ -32,9 +35,9 @@ contract ContractTest is DSTest {
         assert(listing == 0.015 ether);
     }
 
-    function testCreateMarket() public {
-        nftmarket.createMarketItem{value:15000000}(address(nft),1,25000000);
-    }
+    // function testCreateMarket() public {
+    //     nftmarket.createMarketSale{value:0.025 ether}(address(nft),1);
+    // }
 
 
 
